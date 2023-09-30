@@ -40,7 +40,7 @@
         <canvas id="unity-canvas" style="width: 100%; height: 100%;"></canvas>
     </div>
 
-    <div id="close-button" style="position: absolute; top: 10%; right: 10%; min-width: 100px; min-height: 100px;">
+    <div id="close-button" style="display:none; position: absolute; top: 10%; right: 10%; min-width: 100px; min-height: 100px;">
         <button onclick="closeParentElement()">
             <span>HIDE</span>
             <span>
@@ -315,6 +315,7 @@
         {
             document.querySelector("#close-button").style.display = "block"
         }
+        console.log("opening button")
     })
 
     // dipanggil saat close button diclick
@@ -385,6 +386,8 @@
 
             document.querySelector("#watchVideoButton").style.display = "none";
             document.querySelector("#playPongButton").style.display = "none";
+
+            window.top.postMessage("finishLoad", "*")
 
         }).catch((message) => {
             alert(message);
